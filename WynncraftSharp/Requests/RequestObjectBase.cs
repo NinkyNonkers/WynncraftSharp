@@ -6,7 +6,6 @@ public abstract class RequestObjectBase : IRequestObject
 {
     [JsonIgnore] public string Endpoint { get;  }
     [JsonIgnore] public string DataObjectName { get; protected set; } = "data";
-
     [JsonIgnore] public ApiVersion ExpectedApiVersion { get; protected set; } = ApiVersion.V2;
 
     protected IWynncraftApiClient Client { get; }

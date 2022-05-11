@@ -8,8 +8,8 @@ public static class WynncraftService
 
     private const string LegacyEndpoint = "public_api.php";
     private const string LatestEndpoint = "v2/";
-    
-    public static string GenerateActionUrl(IRequestObject obj, string command = "")
+
+    public static string GenerateCommandUrl(IRequestObject obj, string command = "")
     {
         string result;
         if (obj.ExpectedApiVersion == ApiVersion.V2)
@@ -19,9 +19,29 @@ public static class WynncraftService
                 result += "/" + command;
             return result;
         }
+
         result = BaseUrl + LegacyEndpoint + $"?action={obj.Endpoint}";
         if (command != "")
             result += "&command=" + command;
+        return result;
+    }
+
+    public static string GenerateUrl(IRequestObject obj, params RequestParameter[] parameters)
+    {
+        string result;
+        if (obj.ExpectedApiVersion == ApiVersion.V2)
+        {
+            result = BaseUrl + LatestEndpoint + obj.Endpoint;
+            
+            return result;
+        }
+
+        result = BaseUrl + LegacyEndpoint + $"?action={obj.Endpoint}";
+
+
+        foreach (RequestParameter param in parameters)
+            result += param.ToParameter(false);
+
         return result;
     }
 

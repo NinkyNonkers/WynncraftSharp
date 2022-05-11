@@ -41,17 +41,15 @@ public class WynncraftApiClient : IWynncraftApiClient
         _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Agent, Assembly.GetCallingAssembly().GetName().Version.ToString()));
     }
     
+    
+    
     public async Task<T> GetAsync<T>(string command = "") where T : class, IRequestObject
     {
         try
         {
             T t = (T) Activator.CreateInstance(typeof(T), this);
-            string requestUrl = WynncraftService.GenerateActionUrl(t, command);
-            //no need for any other method yet
-            HttpResponseMessage message = await _client.GetAsync(requestUrl);
-            message.EnsureSuccessStatusCode();
-            JsonTransformer<T> jsonTransformer = new JsonTransformer<T>(t, await message.Content.ReadAsStringAsync());
-            return jsonTransformer.Transform();
+            string requestUrl = WynncraftService.GenerateCommandUrl(t, command);
+            return await GetInternalAsync(t, requestUrl);
         }
         catch (Exception e)
         {
@@ -60,26 +58,34 @@ public class WynncraftApiClient : IWynncraftApiClient
         }
         
     }
-
+    
+    private async Task<T> GetInternalAsync<T>(T currentValue, string url) where T : class, IRequestObject
+    {
+        HttpResponseMessage message = await _client.GetAsync(url);
+        message.EnsureSuccessStatusCode();
+        JsonTransformer<T> jsonTransformer = new JsonTransformer<T>(currentValue, await message.Content.ReadAsStringAsync());
+        return jsonTransformer.Transform();
+    }
+    
     public T Get<T>(string command = "") where T : class, IRequestObject
     {
         try
         {
             T t = (T) Activator.CreateInstance(typeof(T), this);
-            string requestUrl = WynncraftService.GenerateActionUrl(t, command);
-            if (command != "")
-                requestUrl += $"&command={command}";
-            //no need for any other method yet
-            HttpResponseMessage message = _client.GetAsync(requestUrl).Result;
-            message.EnsureSuccessStatusCode();
-            JsonTransformer<T> jsonTransformer =
-                new JsonTransformer<T>(t, (message.Content.ReadAsStringAsync().Result));
-            return jsonTransformer.Transform();
+            string requestUrl = WynncraftService.GenerateCommandUrl(t, command);
+            return GetInternalAsync(t, requestUrl).Result;
         }
         catch (Exception e)
         {
             _logger.LogError(e, "Could not request the Wynncraft API!");
             throw;
         }
+    }
+
+    public async Task<T> GetWithParametersAsync<T>(params RequestParameter[] para) where T : class, IRequestObject
+    {
+        T t = (T) Activator.CreateInstance(typeof(T), this);
+        string requestUrl = WynncraftService.GenerateUrl(t, para);
+        return await GetInternalAsync(t, requestUrl);
     }
 }

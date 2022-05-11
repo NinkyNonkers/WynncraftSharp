@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using NUnit.Framework;
 using WynncraftSharp.Guilds;
+using WynncraftSharp.Search;
 using WynncraftSharp.User;
 
 namespace WynncraftSharp.Tests;
@@ -20,7 +21,7 @@ public class Tests
     public async Task Test1()
     {
         //Guild d = await _apiClient.GetGuildAsync("Avicia");
-        Player p = await _apiClient.GetPlayerAsync("PHOENIXMAINWIKI");
+        StatsSearch search = await _apiClient.SearchAsync("wiki");
         Assert.Pass();
     }
 
@@ -32,5 +33,6 @@ public class Tests
         IWynncraftApiClient client = builder.Build(); 
         //Now use any of your favourite wynncraft API methods with ease!
         Guild guild = await client.GetGuildAsync("Gasmask");
+        StatsSearch search = await client.SearchAsync("wiki");
     }
 }
