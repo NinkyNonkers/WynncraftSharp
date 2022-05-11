@@ -9,14 +9,18 @@ public static class WynncraftService
     
     public static string GenerateActionUrl(IWynncraftRequestObject obj, string command = "")
     {
+        string result;
         if (obj.ExpectedApiVersion == ApiVersion.V2)
         {
-            string result = BaseUrl + "/" + obj.Endpoint;
+            result = BaseUrl + "/" + obj.Endpoint;
             if (command != "")
                 result += "/" + command;
             return result;
         }
-        return BaseUrl + $"?action={obj.Endpoint}";
+        result = BaseUrl + $"?action={obj.Endpoint}";
+        if (command != "")
+            result += "&command=" + command;
+        return result;
     }
 
     public const string WynncraftWebsite = "https://wynncraft.com";
