@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.Requests.Versions;
+﻿namespace WynncraftSharp.Requests.Latest;
 
 public interface ILatestObject
 {

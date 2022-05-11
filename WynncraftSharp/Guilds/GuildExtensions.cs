@@ -6,4 +6,10 @@ public static class GuildExtensions
     {
         return await client.GetAsync<Guild>(name);
     } 
+    
+    public static async Task<Guild> GetGuildAsync(this IWynncraftApiClient client, IGuild guild)
+    {
+        return await GetGuildAsync(client, guild.Name);
+    } 
+    
 }

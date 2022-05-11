@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using WynncraftSharp.JSON;
-using WynncraftSharp.Requests.Versions;
 
 namespace WynncraftSharp.Requests;
 

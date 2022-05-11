@@ -6,4 +6,9 @@ public static class PlayerExtensions
     {
         return await client.GetAsync<Player>(identifier + "/stats");
     }
+    
+    public static async Task<Player> GetPlayerAsync(this IWynncraftApiClient client, IUser user)
+    {
+        return await GetPlayerAsync(client, user.UUID);
+    }
 }

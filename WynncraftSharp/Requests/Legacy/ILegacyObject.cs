@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.Requests.Versions;
+﻿namespace WynncraftSharp.Requests.Legacy;
 
 public interface ILegacyObject
 {

@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.Requests;
+﻿namespace WynncraftSharp.Requests.Legacy;
 
 public class Request
 {

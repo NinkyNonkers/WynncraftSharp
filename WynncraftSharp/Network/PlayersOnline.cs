@@ -1,9 +1,8 @@
-﻿using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Versions;
+﻿using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Network;
 
-public class PlayersOnline : RequestObjectBase, ILegacyObject
+public class PlayersOnline : LegacyRequestObjectBase
 {
     
     public static implicit operator int(PlayersOnline value)
@@ -18,5 +17,4 @@ public class PlayersOnline : RequestObjectBase, ILegacyObject
     // ReSharper disable once MemberCanBePrivate.Global
     public ushort PlayerCount { get; internal set; }
 
-    public Request Request { get; internal set; }
 }

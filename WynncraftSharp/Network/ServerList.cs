@@ -1,17 +1,16 @@
-﻿using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Versions;
+﻿using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Network;
 
 //TODO: implement dynamic object to handle varying server availability
-public class ServerList : RequestObjectBase, ILegacyObject
+public class ServerList : LegacyRequestObjectBase
 {
-    
     public ServerList(IWynncraftApiClient client) : base(client, "onlinePlayers")
     {
-        throw new NotImplementedException();
+        
     }
     
+    public dynamic Servers { get; }
     
     public Request Request { get; }
 }

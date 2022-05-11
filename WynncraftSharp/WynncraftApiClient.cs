@@ -3,7 +3,6 @@ using System.Reflection;
 using Microsoft.Extensions.Logging;
 using WynncraftSharp.JSON;
 using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Versions;
 
 namespace WynncraftSharp;
 

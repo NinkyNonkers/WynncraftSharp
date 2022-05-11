@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using WynncraftSharp.Collections;
 using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Versions;
+using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Guilds;
 

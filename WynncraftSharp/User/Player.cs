@@ -1,36 +1,20 @@
-﻿using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Versions;
-using WynncraftSharp.Store;
+﻿using WynncraftSharp.Requests.Latest;
 using WynncraftSharp.User.Statistics;
 
 namespace WynncraftSharp.User;
 
-public class Player : RequestObjectBase, IUser, ILatestObject
+public class Player : LatestRequestObjectBase, IUser
 {
     public Player(IWynncraftApiClient client) : base(client, "player")
     {
     }
 
-
-    #region Request
-
-    public string Kind { get; internal set; }
-    public int Code { get; internal set; }
-    public string Message { get; internal set; }
-    public ulong Timestamp { get; internal set; }
-    public string Version { get; internal set; }
-
-    #endregion
-    
-    
-    
     public string Name
     {
         get => Username;
     }
     
     public string Username { get; internal set; }
-    
     
     public string UUID { get; internal set; }
     

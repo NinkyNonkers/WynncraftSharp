@@ -1,12 +1,11 @@
 ﻿// ReSharper disable UnassignedGetOnlyAutoProperty
 
 using WynncraftSharp.Guilds.Banner;
-using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Versions;
+using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Guilds;
 
-public class Guild : RequestObjectBase, IGuild, ILegacyObject
+public class Guild : LegacyRequestObjectBase, IGuild
 {
     public string Name { get; internal set; }
     public string Prefix { get; internal set; }
@@ -21,8 +20,6 @@ public class Guild : RequestObjectBase, IGuild, ILegacyObject
     public Guild(IWynncraftApiClient client) : base(client, "guildStats")
 #pragma warning restore CS8618
     {
-        ExpectedApiVersion = ApiVersion.Legacy;
+        
     }
-
-    public Request Request { get; internal set; }
 }

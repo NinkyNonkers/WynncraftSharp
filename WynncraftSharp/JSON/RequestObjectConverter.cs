@@ -39,7 +39,7 @@ public class RequestObjectConverter : JsonConverter<IRequestObject>
         
         //populate request meta fields for V2
         obj.Remove(existingValue.DataObjectName);
-        JsonConvert.PopulateObject(obj.ToString(), existingValue); 
+        JsonConvert.PopulateObject(obj.ToString(), existingValue, _settings); 
 
         return existingValue;
     }
