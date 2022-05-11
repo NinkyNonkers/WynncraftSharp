@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WynncraftSharp", "WynncraftSharp\WynncraftSharp.csproj", "{9DCAA509-497C-42A1-97FE-4F4740E4995C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WynncraftSharp.Tests", "WynncraftSharp.Tests\WynncraftSharp.Tests.csproj", "{1228CEA7-2493-4CFD-AB10-8DA9CF03921B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DCAA509-497C-42A1-97FE-4F4740E4995C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DCAA509-497C-42A1-97FE-4F4740E4995C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DCAA509-497C-42A1-97FE-4F4740E4995C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DCAA509-497C-42A1-97FE-4F4740E4995C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1228CEA7-2493-4CFD-AB10-8DA9CF03921B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1228CEA7-2493-4CFD-AB10-8DA9CF03921B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1228CEA7-2493-4CFD-AB10-8DA9CF03921B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1228CEA7-2493-4CFD-AB10-8DA9CF03921B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

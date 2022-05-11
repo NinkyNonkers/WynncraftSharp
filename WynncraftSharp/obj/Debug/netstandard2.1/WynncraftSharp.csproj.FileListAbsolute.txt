@@ -1,0 +1,10 @@
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\bin\Debug\netstandard2.1\WynncraftSharp.deps.json
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\bin\Debug\netstandard2.1\WynncraftSharp.dll
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\bin\Debug\netstandard2.1\WynncraftSharp.pdb
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\obj\Debug\netstandard2.1\WynncraftSharp.csproj.AssemblyReference.cache
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\obj\Debug\netstandard2.1\WynncraftSharp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\obj\Debug\netstandard2.1\WynncraftSharp.AssemblyInfoInputs.cache
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\obj\Debug\netstandard2.1\WynncraftSharp.AssemblyInfo.cs
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\obj\Debug\netstandard2.1\WynncraftSharp.csproj.CoreCompileInputs.cache
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\obj\Debug\netstandard2.1\WynncraftSharp.dll
+D:\Libraries\WynncraftDN\WynncraftSharp\WynncraftSharp\obj\Debug\netstandard2.1\WynncraftSharp.pdb
