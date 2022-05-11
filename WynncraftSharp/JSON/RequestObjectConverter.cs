@@ -4,7 +4,7 @@ using WynncraftSharp.Requests;
 
 namespace WynncraftSharp.JSON;
 
-public class RequestObjectConverter : JsonConverter<IWynncraftRequestObject>
+public class RequestObjectConverter : JsonConverter<IRequestObject>
 {
     public override bool CanWrite { get; } = false;
 
@@ -18,22 +18,29 @@ public class RequestObjectConverter : JsonConverter<IWynncraftRequestObject>
         };
     }
 
-    public override void WriteJson(JsonWriter writer, IWynncraftRequestObject? value, JsonSerializer serializer)
+    public override void WriteJson(JsonWriter writer, IRequestObject? value, JsonSerializer serializer)
     {
         //unrequired
         throw new NotImplementedException();
     }
 
-    public override IWynncraftRequestObject? ReadJson(JsonReader reader, Type objectType, IWynncraftRequestObject? existingValue,
+    public override IRequestObject? ReadJson(JsonReader reader, Type objectType, IRequestObject? existingValue,
         bool hasExistingValue, JsonSerializer serializer)
     {
         if (existingValue == null)
             throw new NotImplementedException();
         JObject obj = JObject.Load(reader);
         var exists = obj.ContainsKey(existingValue.DataObjectName);
-        var dataObj = !exists ? obj.ToString() : obj[existingValue.DataObjectName]!.ToString();
+        var dataObj = !exists ? obj.ToString() : obj[existingValue.DataObjectName]!.RequestDataToObject().ToString();
         //prevent looping
         JsonConvert.PopulateObject(dataObj, existingValue, _settings);
+
+        if (!exists) return existingValue;
+        
+        //populate request meta fields for V2
+        obj.Remove(existingValue.DataObjectName);
+        JsonConvert.PopulateObject(obj.ToString(), existingValue); 
+
         return existingValue;
     }
 }

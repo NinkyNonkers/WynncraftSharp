@@ -5,7 +5,7 @@ using WynncraftSharp.User.Statistics;
 
 namespace WynncraftSharp.User;
 
-public class Player : WynncraftRequestObjectBase, IUser, ILatestObject
+public class Player : RequestObjectBase, IUser, ILatestObject
 {
     public Player(IWynncraftApiClient client) : base(client, "player")
     {
@@ -24,17 +24,21 @@ public class Player : WynncraftRequestObjectBase, IUser, ILatestObject
     
     
     
-    public string Name { get; internal set; }
+    public string Name
+    {
+        get => Username;
+    }
+    
+    public string Username { get; internal set; }
+    
+    
     public string UUID { get; internal set; }
     
     public string Rank { get; internal set; }
-    public Rank Tag { get; internal set; }
 
     public PlayerMeta Meta { get; internal set; }
     public PlayerClass[] Classes { get; internal set; }
     public PlayerGuild Guild { get; internal set; }
     public PlayerGlobal Global { get; internal set; }
-    
-    
-    
+
 }

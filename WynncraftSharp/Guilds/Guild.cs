@@ -6,7 +6,7 @@ using WynncraftSharp.Requests.Versions;
 
 namespace WynncraftSharp.Guilds;
 
-public class Guild : WynncraftRequestObjectBase, IGuild, ILegacyObject
+public class Guild : RequestObjectBase, IGuild, ILegacyObject
 {
     public string Name { get; internal set; }
     public string Prefix { get; internal set; }

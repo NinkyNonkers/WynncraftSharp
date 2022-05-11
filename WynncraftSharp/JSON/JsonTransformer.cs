@@ -4,7 +4,7 @@ using WynncraftSharp.Requests;
 
 namespace WynncraftSharp.JSON;
 
-public class JsonTransformer<TTarget> where TTarget : class, IWynncraftRequestObject
+public class JsonTransformer<TTarget> where TTarget : class, IRequestObject
 {
     private readonly string _json;
     private readonly JsonSerializerSettings _settings;
@@ -23,8 +23,7 @@ public class JsonTransformer<TTarget> where TTarget : class, IWynncraftRequestOb
     public TTarget Transform()
     {
         JObject json = JObject.Parse(_json);
-        if (json.ContainsKey("error"))
-            throw new Exception("Response indicated an error: " + json["error"]);
+        json.CheckJson();
         JObject obj = new JObject {{"RequestObject", json}};
         RequestObjectWrapper<TTarget> wrapper = new RequestObjectWrapper<TTarget>(_result);
         JsonConvert.PopulateObject(obj.ToString(), wrapper, _settings);

@@ -3,7 +3,7 @@ using WynncraftSharp.Requests.Versions;
 
 namespace WynncraftSharp.Requests;
 
-public abstract class WynncraftRequestObjectBase : IWynncraftRequestObject
+public abstract class RequestObjectBase : IRequestObject
 {
     [JsonIgnore] public string Endpoint { get;  }
     [JsonIgnore] public string DataObjectName { get; protected set; } = "data";
@@ -12,14 +12,14 @@ public abstract class WynncraftRequestObjectBase : IWynncraftRequestObject
 
     protected IWynncraftApiClient Client { get; }
 
-    protected WynncraftRequestObjectBase(IWynncraftApiClient client, string endpoint, string dataObjectName)
+    protected RequestObjectBase(IWynncraftApiClient client, string endpoint, string dataObjectName)
     {
         Client = client;
         Endpoint = endpoint;
         DataObjectName = dataObjectName;
     }
     
-    protected WynncraftRequestObjectBase(IWynncraftApiClient client, string endpoint)
+    protected RequestObjectBase(IWynncraftApiClient client, string endpoint)
     {
         Client = client;
         Endpoint = endpoint;

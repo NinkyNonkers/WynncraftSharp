@@ -6,6 +6,7 @@ namespace WynncraftSharp.User.Statistics;
 public class PlayerDungeons
 {
     public ushort Completed { get; internal set; }
+    
     [JsonProperty("list")]
-    public DungeonCompletions Dungeons { get; internal set; }
+    public DungeonCompletion[] Dungeons { get; internal set; }
 }

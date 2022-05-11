@@ -12,6 +12,18 @@ public class Rank : IEquatable<string>
     {
         Name = name;
     }
+
+    //for JSON
+    public Rank()
+    {
+        
+    }
+    
+    public static implicit operator string(Rank value)
+    {
+        return value.Name;
+    }
+    
     private bool Equals(Rank other)
     {
         return other.Name == Name;

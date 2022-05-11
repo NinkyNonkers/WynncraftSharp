@@ -19,19 +19,9 @@ public class Tests
     [Test]
     public async Task Test1()
     {
-        Guild d = await _apiClient.GetGuildAsync("Avicia");
-        Player p = await _apiClient.GetPlayerAsync("lovewiki");
-        if (d.Request.Version == 2)
-            Assert.Pass();
+        //Guild d = await _apiClient.GetGuildAsync("Avicia");
+        Player p = await _apiClient.GetPlayerAsync("PHOENIXMAINWIKI");
         Assert.Pass();
-
-
-        IWynncraftApiClientBuilder builder = new WynncraftApiClientBuilder();
-        //Perform client configuration here such logging (uses Microsoft's abstraction)
-        IWynncraftApiClient client = builder.Build();
-        //Now use any of your favourite wynncraft API methods with ease!
-        Guild guild = await client.GetGuildAsync("Gasmask");
-        
     }
 
     //Although synchronous methods are supported, it is recommended to use async
