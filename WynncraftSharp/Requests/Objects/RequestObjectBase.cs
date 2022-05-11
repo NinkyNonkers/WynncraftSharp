@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WynncraftSharp.Requests;
+namespace WynncraftSharp.Requests.Objects;
 
 public abstract class RequestObjectBase : IRequestObject
 {

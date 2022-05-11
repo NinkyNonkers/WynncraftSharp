@@ -1,8 +1,10 @@
-﻿namespace WynncraftSharp.Requests.Legacy;
+﻿using WynncraftSharp.Requests.Objects;
 
-public abstract class LegacyRequestObjectBase : RequestObjectBase, ILegacyObject
+namespace WynncraftSharp.Requests.Legacy;
+
+public abstract class LegacyRequestObjectBase : RequestObjectBase, ILegacyRequest
 {
-    public Request Request { get; internal set; }
+    public LegacyRequestInformation Request { get; internal set; }
 
     protected LegacyRequestObjectBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
     {

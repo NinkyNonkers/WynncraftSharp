@@ -2,13 +2,11 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using WynncraftSharp.Guilds;
 using WynncraftSharp.Search;
-using WynncraftSharp.User;
 
 namespace WynncraftSharp.Tests;
 
 public class Tests
 {
-
     private IWynncraftApiClient _apiClient;
     
     [SetUp]

@@ -1,13 +1,12 @@
 ﻿using Newtonsoft.Json;
 using WynncraftSharp.JSON;
 
-namespace WynncraftSharp.Requests;
+namespace WynncraftSharp.Requests.Objects;
 
 
 [JsonConverter(typeof(RequestObjectConverter))]
-public interface IRequestObject
+public interface IRequestObject : IRequest
 {
-    [JsonIgnore] public string Endpoint { get; }
     [JsonIgnore] public string DataObjectName { get; }
     [JsonIgnore] public ApiVersion ExpectedApiVersion { get; }
 }

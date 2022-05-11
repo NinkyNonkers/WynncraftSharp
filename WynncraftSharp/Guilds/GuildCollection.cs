@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using Newtonsoft.Json;
-using WynncraftSharp.Collections;
 using WynncraftSharp.Requests;
+using WynncraftSharp.Requests.Collections;
 using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Guilds;
 
-public class GuildCollection : ILegacyObject, ICollectionObject<Guild>
+public class GuildCollection : ILegacyRequest, IRequestCollection<Guild>
 {
     [JsonProperty("guilds")]
 #pragma warning disable CS8618
@@ -31,7 +31,7 @@ public class GuildCollection : ILegacyObject, ICollectionObject<Guild>
     [JsonIgnore]
     private readonly IWynncraftApiClient _client;
 
-    public Request Request { get; internal set; }
+    public LegacyRequestInformation Request { get; internal set; }
 
     public string Endpoint { get; } = "guildList";
     public string DataName { get; } = "guilds";

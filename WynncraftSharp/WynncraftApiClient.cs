@@ -3,6 +3,7 @@ using System.Reflection;
 using Microsoft.Extensions.Logging;
 using WynncraftSharp.JSON;
 using WynncraftSharp.Requests;
+using WynncraftSharp.Requests.Objects;
 
 namespace WynncraftSharp;
 
@@ -40,8 +41,6 @@ public class WynncraftApiClient : IWynncraftApiClient
         _client = new HttpClient();
         _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Agent, Assembly.GetCallingAssembly().GetName().Version.ToString()));
     }
-    
-    
     
     public async Task<T> GetAsync<T>(string command = "") where T : class, IRequestObject
     {

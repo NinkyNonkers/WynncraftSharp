@@ -12,5 +12,5 @@ public class ServerList : LegacyRequestObjectBase
     
     public dynamic Servers { get; }
     
-    public Request Request { get; }
+    public LegacyRequestInformation Request { get; }
 }

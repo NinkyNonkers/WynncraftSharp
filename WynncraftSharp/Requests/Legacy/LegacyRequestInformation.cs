@@ -1,6 +1,6 @@
 ﻿namespace WynncraftSharp.Requests.Legacy;
 
-public class Request
+public class LegacyRequestInformation
 {
     public ulong Timestamp { get; internal set; }
     public int Version {get; internal set; }

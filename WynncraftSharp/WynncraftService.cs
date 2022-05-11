@@ -1,4 +1,5 @@
 ﻿using WynncraftSharp.Requests;
+using WynncraftSharp.Requests.Objects;
 
 namespace WynncraftSharp;
 

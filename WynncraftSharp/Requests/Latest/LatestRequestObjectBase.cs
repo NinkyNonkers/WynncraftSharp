@@ -1,6 +1,8 @@
-﻿namespace WynncraftSharp.Requests.Latest;
+﻿using WynncraftSharp.Requests.Objects;
 
-public abstract class LatestRequestObjectBase : RequestObjectBase, ILatestObject
+namespace WynncraftSharp.Requests.Latest;
+
+public abstract class LatestRequestObjectBase : RequestObjectBase, ILatestRequest
 {
     protected LatestRequestObjectBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
     {

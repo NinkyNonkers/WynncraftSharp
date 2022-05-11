@@ -1,6 +1,6 @@
 ﻿namespace WynncraftSharp.Requests.Latest;
 
-public interface ILatestObject
+public interface ILatestRequest : IRequest
 {
     public string Kind { get; }
     public int Code { get; }
