@@ -12,4 +12,12 @@ public class RequestObjectResolver : DefaultContractResolver
         res.Writable = true;
         return res;
     }
+
+    protected override JsonContract CreateContract(Type objectType)
+    {
+        JsonContract contract = base.CreateContract(objectType);
+        if (objectType.IsDefined(typeof(JsonCollectionAttribute)))
+            return CreateObjectContract(objectType);
+        return contract;
+    }
 }

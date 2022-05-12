@@ -2,7 +2,12 @@
 
 namespace WynncraftSharp.Requests.Collections;
 
-public interface IRequestCollection<out T> : IEnumerable<T>, IRequest where T : IRequestObject
+public interface IRequestCollection
+{
+    
+}
+
+public interface IRequestCollection<out T> : IEnumerable<T>, IRequestCollection, IRequest
 {
     public string DataName { get; }
 }

@@ -10,7 +10,7 @@ public static class WynncraftService
     private const string LegacyEndpoint = "public_api.php";
     private const string LatestEndpoint = "v2/";
 
-    public static string GenerateCommandUrl(IRequestObject obj, string command = "")
+    public static string GenerateCommandUrl(IRequest obj, string command = "")
     {
         string result;
         if (obj.ExpectedApiVersion == ApiVersion.V2)
@@ -27,7 +27,7 @@ public static class WynncraftService
         return result;
     }
 
-    public static string GenerateUrl(IRequestObject obj, params RequestParameter[] parameters)
+    public static string GenerateUrl(IRequest obj, params RequestParameter[] parameters)
     {
         string result;
         if (obj.ExpectedApiVersion == ApiVersion.V2)

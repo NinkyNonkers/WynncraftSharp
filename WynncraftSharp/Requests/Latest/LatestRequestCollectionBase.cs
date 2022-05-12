@@ -1,9 +1,8 @@
 ﻿using WynncraftSharp.Requests.Collections;
-using WynncraftSharp.Requests.Objects;
 
 namespace WynncraftSharp.Requests.Latest;
 
-public abstract class LatestRequestCollectionBase<T> : RequestCollectionBase<T>, ILatestRequest where T : IRequestObject
+public abstract class LatestRequestCollectionBase<T> : RequestCollectionBase<T>, ILatestRequest
 {
     protected LatestRequestCollectionBase(string endpoint, string dataObjectName) : base(endpoint, dataObjectName)
     {

@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using WynncraftSharp.Requests;
 using WynncraftSharp.Requests.Objects;
 
 namespace WynncraftSharp.JSON;

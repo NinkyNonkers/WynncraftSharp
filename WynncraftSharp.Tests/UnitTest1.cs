@@ -19,7 +19,7 @@ public class Tests
     public async Task Test1()
     {
         //Guild d = await _apiClient.GetGuildAsync("Avicia");
-        StatsSearch search = await _apiClient.SearchAsync("wiki");
+        GuildCollection collection = await _apiClient.GetGuildsAsync();
         Assert.Pass();
     }
 

@@ -1,9 +1,8 @@
 ﻿using WynncraftSharp.Requests.Collections;
-using WynncraftSharp.Requests.Objects;
 
 namespace WynncraftSharp.Requests.Legacy;
 
-public abstract class LegacyRequestCollectionBase<T> : RequestCollectionBase<T>, ILegacyRequest where T : IRequestObject
+public abstract class LegacyRequestCollectionBase<T> : RequestCollectionBase<T>, ILegacyRequest
 {
     protected LegacyRequestCollectionBase(string endpoint, string dataObjectName) : base(endpoint, dataObjectName)
     {

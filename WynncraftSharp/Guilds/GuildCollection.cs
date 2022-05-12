@@ -1,38 +1,18 @@
-﻿using System.Collections;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using WynncraftSharp.JSON;
 using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Collections;
 using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Guilds;
 
-public class GuildCollection : ILegacyRequest, IRequestCollection<Guild>
+[JsonCollection]
+public class GuildCollection : LegacyRequestCollectionBase<string>
 {
-    [JsonProperty("guilds")]
-#pragma warning disable CS8618
-    private Guild[] _guilds;
-#pragma warning restore CS8618
-
-    public IEnumerator<Guild> GetEnumerator()
+    public GuildCollection(IWynncraftApiClient client) : base("guildList", "guilds")
     {
-        return _guilds.ToList().GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public GuildCollection(IWynncraftApiClient client)
-    {
-        _client = client;
+        ExpectedApiVersion = ApiVersion.Legacy;
     }
     
-    [JsonIgnore]
-    private readonly IWynncraftApiClient _client;
-
-    public LegacyRequestInformation Request { get; internal set; }
-
-    public string Endpoint { get; } = "guildList";
-    public string DataName { get; } = "guilds";
+    [JsonProperty("guilds")]
+    public override string[] Collection { get; internal set; }
 }

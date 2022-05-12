@@ -3,7 +3,6 @@ using System.Reflection;
 using Microsoft.Extensions.Logging;
 using WynncraftSharp.JSON;
 using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Objects;
 
 namespace WynncraftSharp;
 
@@ -42,13 +41,13 @@ public class WynncraftApiClient : IWynncraftApiClient
         _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Agent, Assembly.GetCallingAssembly().GetName().Version.ToString()));
     }
     
-    public async Task<T> GetAsync<T>(string command = "") where T : class, IRequestObject
+    public async Task<T> GetAsync<T>(string command = "", bool wrap = true) where T : class, IRequest
     {
         try
         {
             T t = (T) Activator.CreateInstance(typeof(T), this);
             string requestUrl = WynncraftService.GenerateCommandUrl(t, command);
-            return await GetInternalAsync(t, requestUrl);
+            return await GetInternalAsync(t, requestUrl, wrap);
         }
         catch (Exception e)
         {
@@ -58,21 +57,21 @@ public class WynncraftApiClient : IWynncraftApiClient
         
     }
     
-    private async Task<T> GetInternalAsync<T>(T currentValue, string url) where T : class, IRequestObject
+    private async Task<T> GetInternalAsync<T>(T currentValue, string url, bool wrap) where T : class, IRequest
     {
         HttpResponseMessage message = await _client.GetAsync(url);
         message.EnsureSuccessStatusCode();
-        JsonTransformer<T> jsonTransformer = new JsonTransformer<T>(currentValue, await message.Content.ReadAsStringAsync());
+        JsonTransformer<T> jsonTransformer = new JsonTransformer<T>(currentValue, await message.Content.ReadAsStringAsync(), wrap);
         return jsonTransformer.Transform();
     }
     
-    public T Get<T>(string command = "") where T : class, IRequestObject
+    public T Get<T>(string command = "", bool wrap = true) where T : class, IRequest
     {
         try
         {
             T t = (T) Activator.CreateInstance(typeof(T), this);
             string requestUrl = WynncraftService.GenerateCommandUrl(t, command);
-            return GetInternalAsync(t, requestUrl).Result;
+            return GetInternalAsync(t, requestUrl, wrap).Result;
         }
         catch (Exception e)
         {
@@ -81,10 +80,10 @@ public class WynncraftApiClient : IWynncraftApiClient
         }
     }
 
-    public async Task<T> GetWithParametersAsync<T>(params RequestParameter[] para) where T : class, IRequestObject
+    public async Task<T> GetWithParametersAsync<T>(bool wrap = true, params RequestParameter[] para) where T : class, IRequest
     {
         T t = (T) Activator.CreateInstance(typeof(T), this);
         string requestUrl = WynncraftService.GenerateUrl(t, para);
-        return await GetInternalAsync(t, requestUrl);
+        return await GetInternalAsync(t, requestUrl, wrap);
     }
 }
