@@ -4,7 +4,7 @@ namespace WynncraftSharp.Requests.Legacy;
 
 public abstract class LegacyRequestCollectionBase<T> : RequestCollectionBase<T>, ILegacyRequest
 {
-    protected LegacyRequestCollectionBase(string endpoint, string dataObjectName) : base(endpoint, dataObjectName)
+    protected LegacyRequestCollectionBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
     {
         
     }

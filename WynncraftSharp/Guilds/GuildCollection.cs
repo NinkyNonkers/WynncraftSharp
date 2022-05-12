@@ -8,7 +8,7 @@ namespace WynncraftSharp.Guilds;
 [JsonCollection]
 public class GuildCollection : LegacyRequestCollectionBase<string>
 {
-    public GuildCollection(IWynncraftApiClient client) : base("guildList", "guilds")
+    public GuildCollection(IWynncraftApiClient client) : base(client, "guildList", "guilds")
     {
         ExpectedApiVersion = ApiVersion.Legacy;
     }

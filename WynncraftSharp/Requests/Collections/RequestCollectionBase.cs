@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using WynncraftSharp.Requests.Objects;
 
 namespace WynncraftSharp.Requests.Collections;
 
-public abstract class RequestCollectionBase<T> : IRequestCollection<T>
+public abstract class RequestCollectionBase<T> : RequestBase, IRequestCollection<T>
 {
     // ReSharper disable once MemberCanBePrivate.Global
     public abstract T[] Collection { get; internal set; }
@@ -18,13 +17,12 @@ public abstract class RequestCollectionBase<T> : IRequestCollection<T>
         return GetEnumerator();
     }
     
-    protected RequestCollectionBase(string endpoint, string dataObjectName)
+    protected RequestCollectionBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client)
     {
         Endpoint = endpoint;
         DataName = dataObjectName;
     }
 
-    public string Endpoint { get; }
-    public ApiVersion ExpectedApiVersion { get; protected set; }
+    public override string Endpoint { get; }
     public string DataName { get; }
 }

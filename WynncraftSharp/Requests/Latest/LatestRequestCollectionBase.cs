@@ -4,7 +4,7 @@ namespace WynncraftSharp.Requests.Latest;
 
 public abstract class LatestRequestCollectionBase<T> : RequestCollectionBase<T>, ILatestRequest
 {
-    protected LatestRequestCollectionBase(string endpoint, string dataObjectName) : base(endpoint, dataObjectName)
+    protected LatestRequestCollectionBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
     {
     }
 

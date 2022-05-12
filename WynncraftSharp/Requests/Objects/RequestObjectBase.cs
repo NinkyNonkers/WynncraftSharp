@@ -2,25 +2,24 @@
 
 namespace WynncraftSharp.Requests.Objects;
 
-public abstract class RequestObjectBase : IRequestObject
+public abstract class RequestObjectBase : RequestBase, IRequestObject
 {
-    [JsonIgnore] public string Endpoint { get;  }
+    [JsonIgnore] public override string Endpoint { get;  }
     [JsonIgnore] public string DataObjectName { get; protected set; } = "data";
-    [JsonIgnore] public ApiVersion ExpectedApiVersion { get; protected set; } = ApiVersion.V2;
 
     protected IWynncraftApiClient Client { get; }
 
-    protected RequestObjectBase(IWynncraftApiClient client, string endpoint, string dataObjectName)
+    protected RequestObjectBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client)
     {
         Client = client;
         Endpoint = endpoint;
         DataObjectName = dataObjectName;
     }
-    
-    protected RequestObjectBase(IWynncraftApiClient client, string endpoint)
+
+    protected RequestObjectBase(IWynncraftApiClient client, string endpoint) : base(client)
     {
         Client = client;
         Endpoint = endpoint;
     }
-    
+
 }
