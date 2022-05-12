@@ -3,5 +3,5 @@
 public class LegacyRequestInformation
 {
     public ulong Timestamp { get; internal set; }
-    public int Version {get; internal set; }
+    public decimal Version {get; internal set; }
 }
