@@ -1,6 +1,6 @@
 ﻿namespace WynncraftSharp.Items;
 
-public class Item
+public class Item : IItem
 {
     public string Name { get; internal set; }
     public string Tier { get; internal set; }

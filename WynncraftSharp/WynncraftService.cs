@@ -33,7 +33,8 @@ public static class WynncraftService
         if (obj.ExpectedApiVersion == ApiVersion.V2)
         {
             result = BaseUrl + LatestEndpoint + obj.Endpoint;
-            
+            foreach (RequestParameter param in parameters)
+                result += param.ToParameter(ApiVersion.V2, false);
             return result;
         }
 
@@ -41,7 +42,7 @@ public static class WynncraftService
 
 
         foreach (RequestParameter param in parameters)
-            result += param.ToParameter(false);
+            result += param.ToParameter(ApiVersion.Legacy, false);
 
         return result;
     }

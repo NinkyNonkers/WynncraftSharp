@@ -11,11 +11,18 @@ public class RequestParameter
         Value = value;
     }
 
-    public string ToParameter(bool first)
+    public string ToParameter(ApiVersion version, bool first)
     {
-        char punctuation = '&';
-        if (first)
-            punctuation = '?';
-        return punctuation + $"{PropertyName}={Value}";
+        switch (version)
+        {
+            case ApiVersion.Legacy:
+                char punctuation = '&';
+                if (first)
+                    punctuation = '?';
+                return punctuation + $"{PropertyName}={Value}";
+            default:
+            case ApiVersion.V2:
+                return "/" + Value;
+        }
     }
 }

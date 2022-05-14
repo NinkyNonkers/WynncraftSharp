@@ -19,6 +19,8 @@ public class WynncraftApiClient : IWynncraftApiClient
     private readonly HttpClient _client;
     private readonly ApiVersion _versionPreference;
     private readonly ILoggerFactory _loggerFactory;
+    
+    
     private readonly ILogger<WynncraftApiClient> _logger;
 
     private const string Agent = "WynncraftSharp";
@@ -41,6 +43,8 @@ public class WynncraftApiClient : IWynncraftApiClient
         _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Agent, Assembly.GetCallingAssembly().GetName().Version.ToString()));
     }
     
+    ILogger<IWynncraftApiClient> IWynncraftApiClient.Logger => _logger;
+
     public async Task<T> GetAsync<T>(string command = "", bool wrap = true) where T : class, IRequest
     {
         try

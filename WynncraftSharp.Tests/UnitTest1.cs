@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using WynncraftSharp.Common.Query;
+using WynncraftSharp.Common.Query.Pattern;
 using WynncraftSharp.Guilds;
 using WynncraftSharp.Items;
+using WynncraftSharp.Recipes;
 using WynncraftSharp.Search;
 
 namespace WynncraftSharp.Tests;
@@ -34,5 +37,6 @@ public class Tests
         //Now use any of your favourite wynncraft API methods with ease!
         Guild guild = await client.GetGuildAsync("Gasmask");
         IEnumerable<Item> items = await client.SearchItemsByNameAsync("staff");
+        RecipeSearch recipes = await client.SearchRecipeAsync(QueryParameters.CreateComplex()))
     }
 }
