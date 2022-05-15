@@ -25,9 +25,9 @@ If you're confident with C#, feel free to help us by scaffolding the remainder o
 - [x] Guilds
 - [x] Logging
 - [x] Players
-- [ ] Items
-- [ ] Professions
-- [ ] Territories
+- [x] Items
+- [x] Professions
+- [x] Territories
 - [ ] Leaderboards
 - [x] Lists
 - [ ] Better configuration
