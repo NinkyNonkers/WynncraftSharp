@@ -1,6 +1,7 @@
-﻿using WynncraftSharp.User.Statistics.Level;
+﻿using WynncraftSharp.User.Level;
+using WynncraftSharp.User.Network;
 
-namespace WynncraftSharp.User.Statistics;
+namespace WynncraftSharp.User.Class;
 
 public class PlayerClass
 {

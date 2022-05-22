@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.User.Statistics;
+﻿namespace WynncraftSharp.User.Network;
 
 public class PlayerGlobal
 {

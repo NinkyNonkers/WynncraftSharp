@@ -1,6 +1,6 @@
-﻿using WynncraftSharp.Store;
+﻿using WynncraftSharp.Network.Store;
 
-namespace WynncraftSharp.User.Statistics;
+namespace WynncraftSharp.User.Network;
 
 public class PlayerMeta
 {

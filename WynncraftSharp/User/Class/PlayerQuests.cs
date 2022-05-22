@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WynncraftSharp.User.Statistics;
+namespace WynncraftSharp.User.Class;
 
 public class PlayerQuests
 {

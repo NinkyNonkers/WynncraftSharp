@@ -28,7 +28,7 @@ If you're confident with C#, feel free to help us by scaffolding the remainder o
 - [x] Items
 - [x] Professions
 - [x] Territories
-- [ ] Leaderboards
+- [x] Leaderboards
 - [x] Lists
 - [ ] Advanced configuration
 

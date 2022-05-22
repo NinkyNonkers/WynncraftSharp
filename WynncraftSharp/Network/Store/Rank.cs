@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WynncraftSharp.Store;
+namespace WynncraftSharp.Network.Store;
 
 public class Rank : IEquatable<string>
 {

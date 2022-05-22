@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using WynncraftSharp.Statistics;
 
-namespace WynncraftSharp.User.Statistics;
+namespace WynncraftSharp.User.Class;
 
 public class PlayerDungeons
 {

@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.User.Statistics.Level;
+﻿namespace WynncraftSharp.User.Level;
 
 public class PlayerRankingSolo
 {

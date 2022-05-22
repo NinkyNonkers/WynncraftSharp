@@ -1,7 +1,8 @@
-﻿using WynncraftSharp.Common;
+﻿using Newtonsoft.Json;
 using WynncraftSharp.Common.Entity;
 using WynncraftSharp.Requests.Latest;
-using WynncraftSharp.User.Statistics;
+using WynncraftSharp.User.Class;
+using WynncraftSharp.User.Network;
 
 namespace WynncraftSharp.User;
 
@@ -11,12 +12,8 @@ public class Player : LatestRequestObjectBase, IUser
     {
     }
 
-    public string Name
-    {
-        get => Username;
-    }
-    
-    public string Username { get; internal set; }
+    [JsonProperty("Username")]
+    public string Name { get; internal set; }
     
     public string UUID { get; internal set; }
     
