@@ -1,4 +1,6 @@
-﻿using WynncraftSharp.Guilds;
+﻿using WynncraftSharp.Common;
+using WynncraftSharp.Common.Entity;
+using WynncraftSharp.Guilds;
 
 namespace WynncraftSharp.User.Statistics;
 

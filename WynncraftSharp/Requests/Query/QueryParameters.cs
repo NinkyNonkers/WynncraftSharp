@@ -1,7 +1,6 @@
-﻿using WynncraftSharp.Common.Query.Pattern;
-using WynncraftSharp.Requests;
+﻿using WynncraftSharp.Requests.Query.Pattern;
 
-namespace WynncraftSharp.Common.Query;
+namespace WynncraftSharp.Requests.Query;
 
 //This implementation is genuinely shocking if I do say so myself - definitely going to need documentation. I
 //TODO: create Linq-like pattern matching for this. the user requests then may then use complex algorithms to determine their result

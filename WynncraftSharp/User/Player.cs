@@ -1,4 +1,6 @@
-﻿using WynncraftSharp.Requests.Latest;
+﻿using WynncraftSharp.Common;
+using WynncraftSharp.Common.Entity;
+using WynncraftSharp.Requests.Latest;
 using WynncraftSharp.User.Statistics;
 
 namespace WynncraftSharp.User;

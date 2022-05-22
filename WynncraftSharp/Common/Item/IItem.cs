@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.Items;
+﻿namespace WynncraftSharp.Common.Item;
 
 public interface IItem
 {

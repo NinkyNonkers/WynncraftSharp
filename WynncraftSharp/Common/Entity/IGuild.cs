@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.Guilds;
+﻿namespace WynncraftSharp.Common.Entity;
 
 public interface IGuild
 {

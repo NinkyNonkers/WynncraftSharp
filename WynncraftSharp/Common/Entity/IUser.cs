@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.User;
+﻿namespace WynncraftSharp.Common.Entity;
 
 public interface IUser
 {

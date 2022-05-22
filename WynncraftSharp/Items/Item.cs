@@ -1,4 +1,7 @@
-﻿namespace WynncraftSharp.Items;
+﻿using WynncraftSharp.Common;
+using WynncraftSharp.Common.Item;
+
+namespace WynncraftSharp.Items;
 
 public class Item : IItem
 {

@@ -1,7 +1,4 @@
-﻿using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Objects;
-
-namespace WynncraftSharp;
+﻿namespace WynncraftSharp.Requests;
 
 public static class WynncraftService
 {
@@ -9,8 +6,9 @@ public static class WynncraftService
 
     private const string LegacyEndpoint = "public_api.php";
     private const string LatestEndpoint = "v2/";
+    
 
-    public static string GenerateCommandUrl(IRequest obj, string command = "")
+    public static string GenerateCommandUrl(this IRequest obj, string command = "")
     {
         string result;
         if (obj.ExpectedApiVersion == ApiVersion.V2)
@@ -27,7 +25,7 @@ public static class WynncraftService
         return result;
     }
 
-    public static string GenerateUrl(IRequest obj, params RequestParameter[] parameters)
+    public static string GenerateParameterUrl(this IRequest obj, params RequestParameter[] parameters)
     {
         string result;
         if (obj.ExpectedApiVersion == ApiVersion.V2)
@@ -40,13 +38,12 @@ public static class WynncraftService
 
         result = BaseUrl + LegacyEndpoint + $"?action={obj.Endpoint}";
 
-
         foreach (RequestParameter param in parameters)
             result += param.ToParameter(ApiVersion.Legacy, false);
 
         return result;
     }
 
-    public const string WynncraftWebsite = "https://wynncraft.com";
+    public const string WynncraftWebsite = "https://wynncraft.com/";
 
 }

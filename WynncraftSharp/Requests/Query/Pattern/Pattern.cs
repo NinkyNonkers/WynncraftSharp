@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.Common.Query.Pattern;
+﻿namespace WynncraftSharp.Requests.Query.Pattern;
 
 public class Pattern<T>
 {

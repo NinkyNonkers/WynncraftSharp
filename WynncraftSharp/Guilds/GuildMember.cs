@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using WynncraftSharp.Common;
+using WynncraftSharp.Common.Entity;
 using WynncraftSharp.User;
 
 namespace WynncraftSharp.Guilds;

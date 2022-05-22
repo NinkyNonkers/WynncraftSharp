@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Xj+eAgl8NQz5j6qIVfPRYjNcCx+p6ZvSU7ZBQo3sygKgwsGvgvWCQlCigwCkIz1W/WdeUkMIUbr8L2X8k8dtxg==",
+  "dgSpecHash": "F+gs/Mjd6V+kJcf545+DfK3NIItkxOEVckExqScaMyc1e90ATRUrqb2R9zaryGa5SgHKtwIDBYDsPKSj81TEhg==",
   "success": true,
   "projectFilePath": "D:\\Libraries\\WynncraftDN\\WynncraftSharp\\WynncraftSharp.Tests\\WynncraftSharp.Tests.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,8 @@
     "C:\\Users\\Archie\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
     "C:\\Users\\Archie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Archie\\.nuget\\packages\\system.text.encodings.web\\7.0.0-preview.4.22229.4\\system.text.encodings.web.7.0.0-preview.4.22229.4.nupkg.sha512",
-    "C:\\Users\\Archie\\.nuget\\packages\\system.text.json\\7.0.0-preview.4.22229.4\\system.text.json.7.0.0-preview.4.22229.4.nupkg.sha512"
+    "C:\\Users\\Archie\\.nuget\\packages\\system.text.json\\7.0.0-preview.4.22229.4\\system.text.json.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\Archie\\.nuget\\packages\\wynncraftsharp\\0.1.5.3\\wynncraftsharp.0.1.5.3.nupkg.sha512"
   ],
   "logs": []
 }

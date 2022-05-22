@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using WynncraftSharp.Common;
+using WynncraftSharp.Common.Item;
 using WynncraftSharp.Items;
 
 namespace WynncraftSharp.Recipes;

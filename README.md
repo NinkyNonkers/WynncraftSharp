@@ -30,6 +30,5 @@ If you're confident with C#, feel free to help us by scaffolding the remainder o
 - [x] Territories
 - [ ] Leaderboards
 - [x] Lists
-- [ ] Better configuration
-- [ ] Cross-api version support
+- [ ] Advanced configuration
 

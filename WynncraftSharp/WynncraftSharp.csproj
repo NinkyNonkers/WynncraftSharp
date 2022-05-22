@@ -5,6 +5,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
+        <PackageVersion>0.1.5.3</PackageVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Ninky Nonk</Authors>
+        <Description>Wynncraft API wrapper for C#</Description>
+        <Copyright>(c) Ninky Nonk</Copyright>
+        <PackageProjectUrl>https://nonk.uk</PackageProjectUrl>
+        <PackageIcon>ninky2.png</PackageIcon>
+        <RepositoryUrl>https://github.com/NinkyNonkers/WynncraftSharp</RepositoryUrl>
+        <PackageTags>wrapper; wynncraft; api</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,6 +27,13 @@
       <Content Include="..\README.md">
         <Link>README.md</Link>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="ninky2.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>
