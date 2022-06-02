@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp.API.Requests.Collections;
 
@@ -17,12 +18,19 @@ public abstract class RequestCollectionBase<T> : RequestBase, IRequestCollection
         return GetEnumerator();
     }
     
-    protected RequestCollectionBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client)
+    protected RequestCollectionBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client, endpoint)
     {
-        Endpoint = endpoint;
+        DataName = dataObjectName;
+    }
+    
+    protected RequestCollectionBase(IWynncraftApiClient client, VersionedEndpoint endpoint) : base(client, endpoint)
+    {
+    }
+    
+    protected RequestCollectionBase(IWynncraftApiClient client, VersionedEndpoint endpoint, string dataObjectName) : base(client, endpoint)
+    {
         DataName = dataObjectName;
     }
 
-    public override string Endpoint { get; }
     public string DataName { get; }
 }

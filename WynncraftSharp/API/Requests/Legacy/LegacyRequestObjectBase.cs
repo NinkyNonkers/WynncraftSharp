@@ -16,4 +16,14 @@ public abstract class LegacyRequestObjectBase : RequestObjectBase, ILegacyReques
     {
         ExpectedApiVersion = ApiVersion.Legacy;
     }
+    
+    protected LegacyRequestObjectBase(IWynncraftApiClient client, VersionedEndpoint endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
+    {
+        ExpectedApiVersion = ApiVersion.Legacy;
+    }
+
+    protected LegacyRequestObjectBase(IWynncraftApiClient client, VersionedEndpoint endpoint) : base(client, endpoint)
+    {
+        ExpectedApiVersion = ApiVersion.Legacy;
+    }
 }

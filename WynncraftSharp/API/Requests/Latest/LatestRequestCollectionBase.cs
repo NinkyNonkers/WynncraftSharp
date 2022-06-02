@@ -1,10 +1,15 @@
 ﻿using WynncraftSharp.API.Requests.Collections;
+using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp.API.Requests.Latest;
 
 public abstract class LatestRequestCollectionBase<T> : RequestCollectionBase<T>, ILatestRequest
 {
     protected LatestRequestCollectionBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
+    {
+    }
+    
+    protected LatestRequestCollectionBase(IWynncraftApiClient client, VersionedEndpoint endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
     {
     }
 

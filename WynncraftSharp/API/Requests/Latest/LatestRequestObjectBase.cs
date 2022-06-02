@@ -7,12 +7,18 @@ public abstract class LatestRequestObjectBase : RequestObjectBase, ILatestReques
 {
     protected LatestRequestObjectBase(IWynncraftApiClient client, string endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
     {
-        ExpectedApiVersion = ApiVersion.V2;
     }
 
     protected LatestRequestObjectBase(IWynncraftApiClient client, string endpoint) : base(client, endpoint)
     {
-        ExpectedApiVersion = ApiVersion.V2;
+    }
+    
+    protected LatestRequestObjectBase(IWynncraftApiClient client, VersionedEndpoint endpoint, string dataObjectName) : base(client, endpoint, dataObjectName)
+    {
+    }
+
+    protected LatestRequestObjectBase(IWynncraftApiClient client, VersionedEndpoint endpoint) : base(client, endpoint)
+    {
     }
 
     public string Kind { get; internal set; }
