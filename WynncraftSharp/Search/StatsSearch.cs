@@ -1,4 +1,4 @@
-﻿using WynncraftSharp.Requests.Legacy;
+﻿using WynncraftSharp.API.Requests.Legacy;
 
 namespace WynncraftSharp.Search;
 

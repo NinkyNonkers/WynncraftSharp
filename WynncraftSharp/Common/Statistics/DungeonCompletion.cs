@@ -1,4 +1,4 @@
-﻿namespace WynncraftSharp.Statistics;
+﻿namespace WynncraftSharp.Common.Statistics;
 
 public class DungeonCompletion
 {

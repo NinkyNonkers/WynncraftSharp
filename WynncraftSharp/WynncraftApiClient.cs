@@ -2,8 +2,10 @@
 using System.Reflection;
 using System.Web;
 using Microsoft.Extensions.Logging;
-using WynncraftSharp.JSON;
-using WynncraftSharp.Requests;
+using WynncraftSharp.API;
+using WynncraftSharp.API.JSON;
+using WynncraftSharp.API.Requests;
+using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp;
 
@@ -53,6 +55,7 @@ public class WynncraftApiClient : IWynncraftApiClient
             Type t = typeof(T);
             _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
             T r = (T) Activator.CreateInstance(t, this);
+            r.PreferredApiVersion = _versionPreference;
             _logger.LogDebug("Generating URL with 'command-action' type");
             string requestUrl = r.GenerateCommandUrl(command);
             return await GetInternalAsync(r, requestUrl, wrap);
@@ -72,6 +75,7 @@ public class WynncraftApiClient : IWynncraftApiClient
             Type t = typeof(T);
             _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
             T r = (T) Activator.CreateInstance(typeof(T), this);
+            r.PreferredApiVersion = _versionPreference;
             _logger.LogDebug("Generating URL with 'command-action' type");
             string requestUrl = r.GenerateCommandUrl();
             return GetInternalAsync(r, requestUrl, wrap).Result;
@@ -90,6 +94,7 @@ public class WynncraftApiClient : IWynncraftApiClient
             Type t = typeof(T);
             _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
             T r = (T) Activator.CreateInstance(typeof(T), this);
+            r.PreferredApiVersion = _versionPreference;
             _logger.LogDebug("Generating URL with 'parameter' type");
             string requestUrl = r.GenerateParameterUrl(para);
             return await GetInternalAsync(r, requestUrl, wrap);

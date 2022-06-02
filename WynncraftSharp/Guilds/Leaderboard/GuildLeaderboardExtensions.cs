@@ -1,4 +1,4 @@
-﻿using WynncraftSharp.Requests;
+﻿using WynncraftSharp.API.Requests;
 
 namespace WynncraftSharp.Guilds.Leaderboard;
 

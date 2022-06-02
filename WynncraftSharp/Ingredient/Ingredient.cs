@@ -1,6 +1,6 @@
 ﻿using System.Dynamic;
+using WynncraftSharp.API.Requests.Latest;
 using WynncraftSharp.Common.Item;
-using WynncraftSharp.Requests.Latest;
 
 namespace WynncraftSharp.Ingredient;
 

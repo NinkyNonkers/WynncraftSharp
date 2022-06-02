@@ -1,5 +1,5 @@
-﻿using WynncraftSharp.Common;
-using WynncraftSharp.Requests.Latest;
+﻿using WynncraftSharp.API.Requests.Latest;
+using WynncraftSharp.Common;
 
 namespace WynncraftSharp.Recipes;
 

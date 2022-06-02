@@ -1,9 +1,9 @@
 ﻿// ReSharper disable UnassignedGetOnlyAutoProperty
 
+using WynncraftSharp.API.Requests.Legacy;
 using WynncraftSharp.Common;
 using WynncraftSharp.Common.Entity;
 using WynncraftSharp.Guilds.Banner;
-using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Guilds;
 

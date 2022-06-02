@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
+using WynncraftSharp.API.Requests.Latest;
 using WynncraftSharp.Common.Entity;
-using WynncraftSharp.Requests.Latest;
 using WynncraftSharp.User.Class;
 using WynncraftSharp.User.Network;
 
