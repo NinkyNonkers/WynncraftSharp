@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Territory;
 

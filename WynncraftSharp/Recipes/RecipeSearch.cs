@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using WynncraftSharp.Requests.Latest;
+using WynncraftSharp.API.Requests.Latest;
 
 namespace WynncraftSharp.Recipes;
 

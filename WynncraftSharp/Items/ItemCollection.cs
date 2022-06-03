@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using WynncraftSharp.JSON;
-using WynncraftSharp.Requests.Legacy;
+using WynncraftSharp.API.JSON;
+using WynncraftSharp.API.Requests.Legacy;
 
 namespace WynncraftSharp.Items;
 

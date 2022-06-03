@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using WynncraftSharp.Requests;
+using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp;
 

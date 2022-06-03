@@ -992,32 +992,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Archie\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\archi\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "0.1.5.3",
+    "version": "0.1.6",
     "restore": {
-      "projectUniqueName": "D:\\Libraries\\WynncraftDN\\WynncraftSharp\\WynncraftSharp\\WynncraftSharp.csproj",
+      "projectUniqueName": "C:\\Users\\archi\\RiderProjects\\WynncraftSharp\\WynncraftSharp\\WynncraftSharp.csproj",
       "projectName": "WynncraftSharp",
-      "projectPath": "D:\\Libraries\\WynncraftDN\\WynncraftSharp\\WynncraftSharp\\WynncraftSharp.csproj",
-      "packagesPath": "C:\\Users\\Archie\\.nuget\\packages\\",
-      "outputPath": "D:\\Libraries\\WynncraftDN\\WynncraftSharp\\WynncraftSharp\\obj\\",
+      "projectPath": "C:\\Users\\archi\\RiderProjects\\WynncraftSharp\\WynncraftSharp\\WynncraftSharp.csproj",
+      "packagesPath": "C:\\Users\\archi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\archi\\RiderProjects\\WynncraftSharp\\WynncraftSharp\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Archie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\archi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "http://nonk.uk:5400/v3/index.json": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -1069,7 +1061,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300-preview.22204.3\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.105\\RuntimeIdentifierGraph.json"
       }
     }
   }

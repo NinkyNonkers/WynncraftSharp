@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using WynncraftSharp.Requests;
-using WynncraftSharp.Requests.Objects;
+using WynncraftSharp.API.Requests;
 
 namespace WynncraftSharp;
 

@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using WynncraftSharp.Requests.Legacy;
+using Newtonsoft.Json;
+using WynncraftSharp.API.Requests.Legacy;
 
 namespace WynncraftSharp.Guilds.Leaderboard;
 
