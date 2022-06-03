@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using WynncraftSharp.Statistics;
+using WynncraftSharp.Common.Statistics;
 
 namespace WynncraftSharp.User.Class;
 

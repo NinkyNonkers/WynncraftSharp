@@ -7,7 +7,7 @@ public static class TerritoryExtensions
     /// </summary>
     /// <param name="client"></param>
     /// <returns></returns>
-    public static async Task<IEnumerable<Territory>> GetTerritories(this IWynncraftApiClient client)
+    public static async Task<IEnumerable<Territory>> GetTerritoriesAsync(this IWynncraftApiClient client)
     {
         return await client.GetAsync<TerritoryCollection>();
     }

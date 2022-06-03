@@ -42,9 +42,14 @@ public class WynncraftApiClient : IWynncraftApiClient
         _client = new HttpClient();
         _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Agent, Assembly.GetCallingAssembly().GetName().Version.ToString()));
     }
+
+    public string ApiUrl
+    {
+        get => WynncraftService.BaseUrl;
+    } 
     
     ILogger<IWynncraftApiClient> IWynncraftApiClient.Logger => _logger;
-
+    
     
     public async Task<T> GetAsync<T>(string command = "", bool wrap = true) where T : class, IRequest
     {
@@ -82,6 +87,8 @@ public class WynncraftApiClient : IWynncraftApiClient
             throw;
         }
     }
+    
+    
 
     public async Task<T> GetWithParametersAsync<T>(bool wrap = true, params RequestParameter[] para) where T : class, IRequest
     {

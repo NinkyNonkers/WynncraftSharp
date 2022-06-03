@@ -1,4 +1,5 @@
-﻿using WynncraftSharp.Requests.Legacy;
+﻿using Newtonsoft.Json;
+using WynncraftSharp.Requests.Legacy;
 
 namespace WynncraftSharp.Guilds.Leaderboard;
 
@@ -8,5 +9,6 @@ public class LeaderboardGuilds : LegacyRequestCollectionBase<LeaderboardGuild>
     {
     }
 
+    [JsonProperty("data")]
     public override LeaderboardGuild[] Collection { get; internal set; }
 }

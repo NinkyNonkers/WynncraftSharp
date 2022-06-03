@@ -6,7 +6,7 @@ namespace WynncraftSharp;
 
 public interface IWynncraftApiClient
 {
-    
+    public string ApiUrl { get; }
     internal ILogger<IWynncraftApiClient> Logger { get; }
 
     /// <summary>
