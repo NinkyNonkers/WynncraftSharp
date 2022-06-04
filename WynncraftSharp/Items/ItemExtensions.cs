@@ -12,7 +12,7 @@ public static class ItemExtensions
     /// <returns></returns>
     public static async Task<IEnumerable<Item>> SearchItemsByCategoryAsync(this IWynncraftApiClient client, string category)
     {
-        return await client.GetWithParametersAsync<ItemCollection>(false, new RequestParameter("category", category));
+        return await client.GetAsync<ItemCollection>(false, new RequestParameter("category", category));
     }
 
     /// <summary>
@@ -23,6 +23,6 @@ public static class ItemExtensions
     /// <returns></returns>
     public static async Task<IEnumerable<Item>> SearchItemsByNameAsync(this IWynncraftApiClient client, string name)
     {
-        return await client.GetWithParametersAsync<ItemCollection>(false, new RequestParameter("search", name));
+        return await client.GetAsync<ItemCollection>(false, new RequestParameter("search", name));
     }
 }

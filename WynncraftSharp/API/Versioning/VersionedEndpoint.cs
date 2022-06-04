@@ -1,4 +1,6 @@
-﻿namespace WynncraftSharp.API.Versioning;
+﻿using WynncraftSharp.API.Requests;
+
+namespace WynncraftSharp.API.Versioning;
 
 public class VersionedEndpoint
 {
@@ -6,6 +8,8 @@ public class VersionedEndpoint
     public string V2 { get; set; }
     public string Original { get; set; }
     public string WebApi { get; set; }
+
+    private readonly ApiVersion _version;
 
     public string DetermineEndpoint(ApiVersion version)
     {
@@ -38,5 +42,7 @@ public class VersionedEndpoint
                 break;
         }
     }
+    
+    
     
 }

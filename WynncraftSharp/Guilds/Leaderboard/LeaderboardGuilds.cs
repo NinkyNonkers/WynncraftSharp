@@ -1,11 +1,13 @@
 ﻿using WynncraftSharp.API.Requests.Legacy;
+using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp.Guilds.Leaderboard;
 
 public class LeaderboardGuilds : LegacyRequestCollectionBase<LeaderboardGuild>
 {
-    public LeaderboardGuilds(IWynncraftApiClient client) : base(client, "statsLeaderboard&type=guild", "ignore")
+    public LeaderboardGuilds(IWynncraftApiClient client) : base(client, new VersionedEndpoint {Legacy = "statsLeaderboard&type=guild", WebApi = "leaderboards/guild"}, "ignore")
     {
+        IsCrossVersion = true;
     }
 
     public override LeaderboardGuild[] Collection { get; internal set; }

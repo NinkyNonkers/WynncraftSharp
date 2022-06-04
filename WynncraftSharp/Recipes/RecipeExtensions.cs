@@ -34,6 +34,6 @@ public static class RecipeExtensions
     /// <returns></returns>
     public static async Task<RecipeSearch> SearchRecipeAsync(this IWynncraftApiClient client, RequestParameter[] param)
     {
-        return await client.GetWithParametersAsync<RecipeSearch>(true, param);
+        return await client.GetAsync<RecipeSearch>(true, param);
     }
 }

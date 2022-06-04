@@ -12,6 +12,6 @@ public static class SearchExtensions
     /// <returns></returns>
     public static async Task<StatsSearch> SearchAsync(this IWynncraftApiClient client, string name)
     {
-        return await client.GetWithParametersAsync<StatsSearch>(true, new RequestParameter("search", name));
+        return await client.GetAsync<StatsSearch>(true, new RequestParameter("search", name));
     }
 }

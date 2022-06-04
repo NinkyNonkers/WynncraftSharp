@@ -10,7 +10,7 @@ public static class WynncraftService
 
     private const string LegacyEndpoint = "public_api.php";
     private const string V2Endpoint = "v2/";
-    private const string V3Endpoint = "v3/";
+    private const string V3Endpoint = "api/v3/";
     
     
     
@@ -30,9 +30,10 @@ public static class WynncraftService
     }
     
 
-    public static string GenerateCommandUrl(this IRequest obj, string command = "")
+    internal static string GenerateCommandUrl(this IRequest obj, string command = "")
     {
         string result = obj.ApiVersion.GetApiUrl();
+        
         if (obj.ApiVersion.IsLatest())
         {
             result += obj.Endpoint;
@@ -47,7 +48,7 @@ public static class WynncraftService
         return result;
     }
 
-    public static string GenerateParameterUrl(this IRequest obj, params RequestParameter[] parameters)
+    internal static string GenerateParameterUrl(this IRequest obj, params RequestParameter[] parameters)
     {
         string result = obj.ApiVersion.GetApiUrl();
         if (obj.ApiVersion.IsLatest())

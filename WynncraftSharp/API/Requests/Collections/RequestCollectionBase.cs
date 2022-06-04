@@ -3,6 +3,7 @@ using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp.API.Requests.Collections;
 
+///<inheritdoc cref="IRequestCollection{T}"/>
 public abstract class RequestCollectionBase<T> : RequestBase, IRequestCollection<T>
 {
     // ReSharper disable once MemberCanBePrivate.Global

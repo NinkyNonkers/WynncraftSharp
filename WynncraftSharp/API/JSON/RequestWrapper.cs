@@ -2,7 +2,7 @@
 
 namespace WynncraftSharp.API.JSON;
 
-public class RequestWrapper<TTarget> where TTarget : class, IRequest
+public class RequestWrapper<TTarget> where TTarget : class
 {
     public TTarget Request { get; }
     

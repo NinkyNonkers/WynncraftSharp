@@ -1,5 +1,8 @@
 ﻿namespace WynncraftSharp.API.Requests.Latest;
 
+/// <summary>
+/// Request format for V2 and V3 versions
+/// </summary>
 public interface ILatestRequest : IRequest
 {
     public string Kind { get; }

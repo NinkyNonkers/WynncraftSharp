@@ -1,6 +1,7 @@
 ﻿// ReSharper disable UnassignedGetOnlyAutoProperty
 
 using WynncraftSharp.API.Requests.Legacy;
+using WynncraftSharp.API.Versioning;
 using WynncraftSharp.Common;
 using WynncraftSharp.Common.Entity;
 using WynncraftSharp.Guilds.Banner;
@@ -19,9 +20,10 @@ public class Guild : LegacyRequestObjectBase, IGuild
     public GuildMember[] Members { get; internal set; }
 
 #pragma warning disable CS8618
-    public Guild(IWynncraftApiClient client) : base(client, "guildStats")
+    public Guild(IWynncraftApiClient client) 
+        : base(client, new VersionedEndpoint{Legacy = "guildStats", WebApi = "guild/"})
 #pragma warning restore CS8618
     {
-        
+        IsCrossVersion = true;
     }
 }

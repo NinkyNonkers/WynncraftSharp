@@ -5,7 +5,7 @@ using WynncraftSharp.API.Requests;
 
 namespace WynncraftSharp.API.JSON;
 
-public class JsonTransformer<TTarget> where TTarget : class, IRequest
+public class JsonTransformer<TTarget> where TTarget : class
 {
     private readonly string _json;
     private readonly JsonSerializerSettings _settings;

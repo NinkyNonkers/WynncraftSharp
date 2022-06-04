@@ -11,12 +11,12 @@ public static class UserLeaderboardExtensions
             default:
             case UserLeaderboard.Level:
                 if (timeframe == -1) 
-                    return await client.GetWithParametersAsync<LevelLeaderboardUsers>(false, new RequestParameter("timeframe", "alltime"));
-                return await client.GetWithParametersAsync<LevelLeaderboardUsers>(false, new RequestParameter("timeframe", timeframe.ToString()));
+                    return await client.GetAsync<LevelLeaderboardUsers>(false, new RequestParameter("timeframe", "alltime"));
+                return await client.GetAsync<LevelLeaderboardUsers>(false, new RequestParameter("timeframe", timeframe.ToString()));
             case UserLeaderboard.PvP:
                 if (timeframe == -1) 
-                    return await client.GetWithParametersAsync<PvPLeaderboardUsers>(false, new RequestParameter("timeframe", "alltime"));
-                return await client.GetWithParametersAsync<PvPLeaderboardUsers>(false, new RequestParameter("timeframe", timeframe.ToString()));
+                    return await client.GetAsync<PvPLeaderboardUsers>(false, new RequestParameter("timeframe", "alltime"));
+                return await client.GetAsync<PvPLeaderboardUsers>(false, new RequestParameter("timeframe", timeframe.ToString()));
         }
     }
 }

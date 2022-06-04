@@ -13,6 +13,11 @@ public class RequestParameter
         Value = value;
     }
 
+    public static implicit operator RequestParameter(string s)
+    {
+        return new RequestParameter("", s);
+    }
+
     public string ToParameter(ApiVersion version, bool first)
     {
         switch (version)
@@ -27,4 +32,15 @@ public class RequestParameter
                 return "/" + Value;
         }
     }
+
+    public string ToAction()
+    {
+        return "?action=" + Value;
+    }
+
+    public string ToCommand()
+    {
+        return Value;
+    }
+    
 }
