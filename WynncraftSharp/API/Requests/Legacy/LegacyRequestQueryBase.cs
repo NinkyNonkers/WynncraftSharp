@@ -1,7 +1,6 @@
-﻿using WynncraftSharp.Requests.Collections.Query;
-using WynncraftSharp.Requests.Query;
+﻿using WynncraftSharp.API.Requests.Collections;
 
-namespace WynncraftSharp.Requests.Legacy;
+namespace WynncraftSharp.API.Requests.Legacy;
 
 public class LegacyRequestQueryBase<T> : RequestQueryBase<T>
 {

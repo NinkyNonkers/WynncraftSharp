@@ -47,13 +47,13 @@ public class WynncraftApiClient : IWynncraftApiClient
 
     public string ApiUrl
     {
-        get => WynncraftService.BaseUrl;
+        get => _versionPreference.GetApiUrl();
     } 
     
     ILogger<IWynncraftApiClient> IWynncraftApiClient.Logger => _logger;
     
     
-    public async Task<T> GetAsync<T>(string command = "", bool wrap = true) where T : class, IRequest
+    public async Task<T> GetAsync<T>(bool wrap = true, params RequestParameter[] data) where T : class, IRequest
     {
         Type t = typeof(T);
         _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
@@ -138,10 +138,6 @@ public class WynncraftApiClient : IWynncraftApiClient
     {
         try
         {
-            Type t = typeof(T);
-            _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
-            T r = (T) Activator.CreateInstance(typeof(T), this);
-            r.PreferredApiVersion = _versionPreference;
             _logger.LogDebug("Generating URL with 'parameter' type");
             string requestUrl = r.GenerateParameterUrl(para);
             return await GetInternalAsync(r, requestUrl, wrap);

@@ -36,4 +36,9 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Requests\Collections" />
+      <Folder Include="Requests\Legacy" />
+    </ItemGroup>
+
 </Project>
