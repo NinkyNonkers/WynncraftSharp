@@ -1,4 +1,5 @@
-﻿using WynncraftSharp.API.Requests.Legacy;
+using Newtonsoft.Json;
+using WynncraftSharp.API.Requests.Legacy;
 using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp.Guilds.Leaderboard;
@@ -10,5 +11,6 @@ public class LeaderboardGuilds : LegacyRequestCollectionBase<LeaderboardGuild>
         IsCrossVersion = true;
     }
 
+    [JsonProperty("data")]
     public override LeaderboardGuild[] Collection { get; internal set; }
 }

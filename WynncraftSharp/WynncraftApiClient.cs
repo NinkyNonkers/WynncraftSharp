@@ -44,10 +44,16 @@ public class WynncraftApiClient : IWynncraftApiClient
         _client = new HttpClient();
         _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Agent, Assembly.GetCallingAssembly().GetName().Version.ToString()));
     }
+
+    public string ApiUrl
+    {
+        get => WynncraftService.BaseUrl;
+    } 
     
     ILogger<IWynncraftApiClient> IWynncraftApiClient.Logger => _logger;
-
-    public async Task<T> GetAsync<T>(bool wrap = true, params RequestParameter[] data)  where T : class, IRequest
+    
+    
+    public async Task<T> GetAsync<T>(string command = "", bool wrap = true) where T : class, IRequest
     {
         Type t = typeof(T);
         _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
@@ -125,11 +131,17 @@ public class WynncraftApiClient : IWynncraftApiClient
         }
         
     }
+    
+    
 
     private async Task<T> GetWithParametersAsync<T>(T r, bool wrap = true, params RequestParameter[] para) where T : class, IRequest
     {
         try
         {
+            Type t = typeof(T);
+            _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
+            T r = (T) Activator.CreateInstance(typeof(T), this);
+            r.PreferredApiVersion = _versionPreference;
             _logger.LogDebug("Generating URL with 'parameter' type");
             string requestUrl = r.GenerateParameterUrl(para);
             return await GetInternalAsync(r, requestUrl, wrap);
@@ -147,6 +159,7 @@ public class WynncraftApiClient : IWynncraftApiClient
         _logger.LogDebug("Requesting Wynncraft API with URL {Url}", url);
         HttpResponseMessage message = await _client.GetAsync(HttpUtility.UrlEncode(url));
         message.EnsureSuccessStatusCode();
+        _logger.LogInformation("Received response from Wynncraft API");
         _logger.LogDebug("Transforming response JSON to request object");
         JsonTransformer<T> jsonTransformer = new JsonTransformer<T>(currentValue, await message.Content.ReadAsStringAsync(),
             _loggerFactory.CreateLogger<JsonTransformer<T>>(), wrap);
