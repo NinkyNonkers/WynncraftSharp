@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
+using WynncraftSharp.API.Requests.Collections;
 
-namespace WynncraftSharp.Requests.Collections.Query;
+namespace WynncraftSharp.API.Requests.Query;
 
 public abstract class RequestQueryBase<T> : RequestCollectionBase<T>
 {

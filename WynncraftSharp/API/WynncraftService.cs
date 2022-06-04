@@ -6,15 +6,13 @@ namespace WynncraftSharp.API;
 public static class WynncraftService
 {
     public const string LegacyBaseUrl = "https://api.wynncraft.com/";
-    public const string Version3BaseUrl = "https://web-api.wynncraft.com/";
+    public const string WebApiBaseUrl = "https://web-api.wynncraft.com/";
 
     private const string LegacyEndpoint = "public_api.php";
     private const string V2Endpoint = "v2/";
     private const string V3Endpoint = "v3/";
     
     
-    
-
     public static string GetApiUrl(this ApiVersion version)
     {
         switch (version)
@@ -25,7 +23,7 @@ public static class WynncraftService
             case ApiVersion.V2:
                 return LegacyBaseUrl + V2Endpoint;
             case ApiVersion.V3:
-                return Version3BaseUrl + V3Endpoint;
+                return WebApiBaseUrl + V3Endpoint;
         }
     }
     
@@ -57,7 +55,7 @@ public static class WynncraftService
                 result += param.ToParameter(obj.ApiVersion, false);
             return result;
         }
-
+        
         result += $"?action={obj.Endpoint}";
         
         foreach (RequestParameter param in parameters)

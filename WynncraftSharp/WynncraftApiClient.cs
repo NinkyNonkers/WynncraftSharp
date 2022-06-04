@@ -47,7 +47,7 @@ public class WynncraftApiClient : IWynncraftApiClient
 
     public string ApiUrl
     {
-        get => WynncraftService.BaseUrl;
+        get => _versionPreference.GetApiUrl();
     } 
     
     ILogger<IWynncraftApiClient> IWynncraftApiClient.Logger => _logger;
