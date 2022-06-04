@@ -13,8 +13,6 @@ public static class WynncraftService
     private const string V3Endpoint = "api/v3/";
     
     
-    
-
     public static string GetApiUrl(this ApiVersion version)
     {
         switch (version)

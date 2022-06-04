@@ -1,11 +1,13 @@
 ﻿using System.Net.Http.Headers;
 using System.Reflection;
 using System.Web;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using WynncraftSharp.API;
 using WynncraftSharp.API.JSON;
 using WynncraftSharp.API.Requests;
 using WynncraftSharp.API.Versioning;
+using WynncraftSharp.Recipes;
 
 namespace WynncraftSharp;
 
@@ -20,36 +22,31 @@ public class WynncraftApiClient : IWynncraftApiClient
      */
     
     private readonly HttpClient _client;
-    private readonly ApiVersion _versionPreference;
     private readonly ILoggerFactory _loggerFactory;
     
     private readonly ILogger<WynncraftApiClient> _logger;
 
     private const string Agent = "WynncraftSharp";
 
-    public WynncraftApiClient(ApiVersion preference = ApiVersion.V2)
-    {
-        _versionPreference = preference;
-        _client = new HttpClient();
-        _loggerFactory = new LoggerFactory();
-        _logger = _loggerFactory.CreateLogger<WynncraftApiClient>();
-        _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Agent, Assembly.GetCallingAssembly().GetName().Version.ToString()));
-    }
+    private readonly ClientConfiguration _config;
 
-    internal WynncraftApiClient(ILoggerFactory factory, ApiVersion preference = ApiVersion.V2)
+    
+    internal WynncraftApiClient(ILoggerFactory factory, ClientConfiguration config)
     {
         _loggerFactory = factory;
-        _versionPreference = preference;
         _logger = _loggerFactory.CreateLogger<WynncraftApiClient>();
         _client = new HttpClient();
         _client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Agent, Assembly.GetCallingAssembly().GetName().Version.ToString()));
+        _config = config;
     }
+
 
     public string ApiUrl
     {
-        get => _versionPreference.GetApiUrl();
+        get => _config.VersionPreference.GetApiUrl();
     } 
     
+    ClientConfiguration IWynncraftApiClient.Config => _config;
     ILogger<IWynncraftApiClient> IWynncraftApiClient.Logger => _logger;
     
     
@@ -58,7 +55,7 @@ public class WynncraftApiClient : IWynncraftApiClient
         Type t = typeof(T);
         _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
         T r = (T) Activator.CreateInstance(t, this);
-        r.PreferredApiVersion = _versionPreference;
+        r.PreferredApiVersion = _config.VersionPreference;
         switch (GetRequestType(r))
         {
             default:
@@ -84,25 +81,26 @@ public class WynncraftApiClient : IWynncraftApiClient
         Type t = typeof(T);
         _logger.LogDebug("Beginning Request cycle: {Cycle}", t.Name);
         T r = (T) Activator.CreateInstance(t, this);
-        r.PreferredApiVersion = _versionPreference;
+        r.PreferredApiVersion = _config.VersionPreference;
         return await GetInternalAsync(r, r.GenerateCommandUrl(), wrap);
     }
 
-    public async Task<T> GetExtensionAsync<T>(IRequest original, string extension, bool wrap = true, params RequestParameter[] param) where T : class, new()
+    public async Task<T> GetExtensionAsync<T>(IRequest original, string extension, bool wrap = true, params RequestParameter[] param) where T : class, IApiElement, new()
     {
         Type t = typeof(T);
-        _logger.LogDebug("Finding extension of {original}: {extension}", original.GetType().Name, t.Name);
+        _logger.LogDebug("Finding extension of {Original}: {Extension}", original.GetType().Name, t.Name);
         string url;
         switch (GetRequestType(original))
         {
             default:
             case RequestType.Action:
                 url = original.GenerateCommandUrl() + extension;
-                return await GetInternalAsync(new T(), url, wrap);
+                break;
             case RequestType.Parameter:
                 url = original.GenerateParameterUrl(param) + extension;
-                return await GetInternalAsync(new T(), url, wrap);
+                break;
         }
+        return await GetInternalAsync(new T(), url, wrap);
     }
 
     private static RequestType GetRequestType(IRequest rq)

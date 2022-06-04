@@ -1,25 +1,19 @@
 ﻿using Microsoft.Extensions.Logging;
-using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp;
 
 public class WynncraftApiClientBuilder : IWynncraftApiClientBuilder
 {
 
-    private ApiVersion _versionPreference = ApiVersion.V2;
     private ILoggerFactory _factory;
+    private readonly ClientConfiguration _config;
 
     public WynncraftApiClientBuilder()
     {
         _factory = LoggerFactory.Create(a => a.AddSimpleConsole());
+        _config = new ClientConfiguration();
     }
     
-    public IWynncraftApiClientBuilder WithVersionPreference(ApiVersion preference)
-    {
-        _versionPreference = preference;
-        return this;
-    }
-
     public IWynncraftApiClientBuilder ConfigureLogging(Action<ILoggerFactory> factory)
     {
         factory(_factory);
@@ -38,8 +32,14 @@ public class WynncraftApiClientBuilder : IWynncraftApiClientBuilder
         return this;
     }
 
+    public IWynncraftApiClientBuilder ConfigureClient(Action<ClientConfiguration> config)
+    {
+        config(_config);
+        return this;
+    }
+
     public IWynncraftApiClient Build()
     {
-        return new WynncraftApiClient(_factory, _versionPreference);
+        return new WynncraftApiClient(_factory, _config);
     }
 }

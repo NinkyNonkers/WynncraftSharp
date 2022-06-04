@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.Logging;
+using WynncraftSharp.API;
 using WynncraftSharp.API.Requests;
 
 namespace WynncraftSharp;
 
 public interface IWynncraftApiClient
 {
-    public string ApiUrl { get; }
     internal ILogger<IWynncraftApiClient> Logger { get; }
+    internal ClientConfiguration Config { get; }
+    public string ApiUrl { get; }
 
     /// <summary>
     /// Gets a request object from the Wynncraft API
@@ -17,11 +19,8 @@ public interface IWynncraftApiClient
     /// <returns></returns>
     public Task<T> GetAsync<T>(bool wrap = true, params RequestParameter[] data) where T : class, IRequest;
     public Task<T> GetAsync<T>(RequestParameter[] data, bool wrap = true) where T : class, IRequest;
-    
     public Task<T> GetAsync<T>(RequestParameter data, bool wrap = true) where T : class, IRequest;
     public Task<T> GetAsync<T>(bool wrap = true) where T : class, IRequest;
-
     public Task<T> GetExtensionAsync<T>(IRequest original, string extension, bool wrap = true,
-        params RequestParameter[] param) where T : class, new();
-
+        params RequestParameter[] param) where T : class, IApiElement, new();
 }

@@ -3,7 +3,7 @@ using WynncraftSharp.API.Versioning;
 
 namespace WynncraftSharp.API.Requests;
 
-public interface IRequest
+public interface IRequest : IApiElement
 {
     [JsonIgnore] public string Endpoint { get; }
     [JsonIgnore] public ApiVersion ExpectedApiVersion { get; }
